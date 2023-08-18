@@ -12,8 +12,16 @@ export default defineConfig({
       version: pkg.version,
       manifest_version: 2,
       chrome_url_overrides: {
-        newtab: "index.html",
+        newtab: "./src/newtab/index.html",
       },
+      background: {
+        scripts: ["./src/background/index.ts"],
+      },
+      browser_action: {
+        default_icon: "./favicon.svg",
+        default_title: "add to pouch",
+      },
+      permissions: ["tabs"],
     },
   })],
 })

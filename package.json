@@ -13,7 +13,9 @@
   "devDependencies": {
     "@samrum/vite-plugin-web-extension": "^5.0.0",
     "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tsconfig/svelte": "^5.0.0",
+    "@types/webextension-polyfill": "^0.10.1",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.28",
     "svelte": "^4.0.5",
