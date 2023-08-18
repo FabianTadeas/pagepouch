@@ -1,0 +1,31 @@
+{
+  "name": "pagepouch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "browser extension for storing tabs for later use",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@samrum/vite-plugin-web-extension": "^5.0.0",
+    "@sveltejs/vite-plugin-svelte": "^2.4.2",
+    "@tsconfig/svelte": "^5.0.0",
+    "autoprefixer": "^10.4.15",
+    "postcss": "^8.4.28",
+    "svelte": "^4.0.5",
+    "svelte-check": "^3.4.6",
+    "tailwindcss": "^3.3.3",
+    "tslib": "^2.6.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  },
+  "dependencies": {
+    "@tabler/icons-webfont": "^2.31.0",
+    "dexie": "^3.2.4",
+    "webextension-polyfill": "^0.10.0"
+  }
+}

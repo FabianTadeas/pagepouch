@@ -1,0 +1,22 @@
+@import "/node_modules/@tabler/icons-webfont/tabler-icons.min.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: Cantarell-Bold;
+  src: url("/Cantarell/Cantarell-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: Cantarell-BoldItalic;
+  src: url("/Cantarell/Cantarell-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: Cantarell-Italic;
+  src: url("/Cantarell/Cantarell-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: Cantarell-Regular;
+  src: url("/Cantarell/Cantarell-Regular.ttf") format("truetype");
+}
