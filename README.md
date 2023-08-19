@@ -1,4 +1,4 @@
-# pagepouch
+# PagePouch
 is a user-friendly browser extension designed to simplify your online experience. This extension allows you to effortlessly store tabs for later use, preventing clutter. Plus, you can easily open stored tabs in the new tab when needed, streamlining your workflow.
 
 ---
@@ -10,8 +10,15 @@ is a user-friendly browser extension designed to simplify your online experience
 ---
 
 ## building
+requirements:
+- tested on linux
+- node@^18.16.1
+- npm@^9.6.7
+
+run:
+
 ```bash
 npm i
-npm run build:chrome #to build for chrome
-npm run build:firefox #to build for firefox
+npm run build:v3 #to build for chrome on manifest v3
+npm run build:v2 #to build for firefox on manifest v2
 ```

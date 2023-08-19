@@ -5,12 +5,10 @@
   "type": "module",
   "description": "browser extension for storing tabs for later use",
   "scripts": {
-    "dev": "vite",
-    "dev:chrome": "VITE_TARGET=chrome vite",
-    "dev:firefox": "VITE_TARGET=firefox vite",
-    "build": "vite build",
-    "build:chrome": "VITE_TARGET=chrome vite build",
-    "build:firefox": "VITE_TARGET=firefox vite build",
+    "dev:v3": "VITE_TARGET=v3 vite",
+    "dev:v2": "VITE_TARGET=v2 vite",
+    "build:v3": "VITE_TARGET=v3 vite build",
+    "build:v2": "VITE_TARGET=v2 vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
