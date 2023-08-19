@@ -12,5 +12,6 @@ is a user-friendly browser extension designed to simplify your online experience
 ## building
 ```bash
 npm i
-npm run build
+npm run build:chrome #to build for chrome
+npm run build:firefox #to build for firefox
 ```

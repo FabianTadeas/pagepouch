@@ -6,7 +6,11 @@
   "description": "browser extension for storing tabs for later use",
   "scripts": {
     "dev": "vite",
+    "dev:chrome": "VITE_TARGET=chrome vite",
+    "dev:firefox": "VITE_TARGET=firefox vite",
     "build": "vite build",
+    "build:chrome": "VITE_TARGET=chrome vite build",
+    "build:firefox": "VITE_TARGET=firefox vite build",
     "preview": "vite preview",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
@@ -15,7 +19,6 @@
     "@sveltejs/vite-plugin-svelte": "^2.4.2",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tsconfig/svelte": "^5.0.0",
-    "@types/webextension-polyfill": "^0.10.1",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.28",
     "svelte": "^4.0.5",
@@ -27,7 +30,6 @@
   },
   "dependencies": {
     "@tabler/icons-webfont": "^2.31.0",
-    "dexie": "^3.2.4",
-    "webextension-polyfill": "^0.10.0"
+    "dexie": "^3.2.4"
   }
 }
