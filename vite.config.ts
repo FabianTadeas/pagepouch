@@ -24,7 +24,7 @@ if (target === "v2") {
       default_icon: "./favicon.svg",
       default_title: "add to pouch",
     },
-    permissions: ["tabs"],
+    permissions: ["activeTab"],
   } satisfies v2;
 } else if (target === "v3") {
   manifest = {
@@ -43,7 +43,7 @@ if (target === "v2") {
       default_icon: "./favicon.svg",
       default_title: "add to pouch",
     },
-    permissions: ["tabs"],
+    permissions: ["activeTab"],
   } satisfies v3;
 } else {
   throw new Error("manifest version not specified");
