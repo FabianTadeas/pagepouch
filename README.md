@@ -3,8 +3,8 @@ is a user-friendly browser extension designed to simplify your online experience
 
 ---
 
-<div style="display:flex;justify-content:center;">
-<img style="width:50%;" src="./public/favicon.svg">
+<div align="center">
+<img style="width:35%;" src="./public/favicon.svg">
 </div>
 
 ---
