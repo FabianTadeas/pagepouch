@@ -3,7 +3,7 @@
     import { liveQuery } from "dexie";
     import Joey from "./Joey.svelte";
     import IDB from "../../IDB"
-    let joeys = liveQuery(() => IDB.joeys.toArray());
+    let joeys = liveQuery(() => IDB.joeys.orderBy("added").toArray());
 
 </script>
 

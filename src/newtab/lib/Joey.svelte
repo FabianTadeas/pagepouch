@@ -7,7 +7,12 @@
     export let id: number|undefined=undefined
 </script>
 
-<a class="w-full h-16 bg-slate-300 dark:bg-slate-700 rounded-md shrink-0 shadow-md flex px-4 gap-2 hover:shadow-xl hover:outline outline-1 transition-all outline-slate-400 dark:outline-slate-600" href={url}>
+<a on:keydown={(ev)=>{
+    if (ev.key === "Delete") {
+        ev.preventDefault()
+        IDB.joeys.delete(id)
+    }
+}} class="w-full h-16 bg-slate-300 dark:bg-slate-700 rounded-md shrink-0 shadow-md flex px-4 gap-2 hover:shadow-xl hover:outline outline-1 transition-all outline-slate-400 dark:outline-slate-600" href={url}>
     <div class="aspect-square h-full grid place-items-center">
         <img class="max-h-[75%]" src={icon} alt={title} />
     </div>
