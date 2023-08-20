@@ -11,7 +11,6 @@ export default {
       "sans-bold": ["Cantarell-Bold"],
       "sans-italic": ["Cantarell-Italic"],
       "sans-italic-bold": ["Cantarell-BoldItalic"],
-      "tabler-icons": ["tabler-icons"],
     },
   },
   plugins: [],

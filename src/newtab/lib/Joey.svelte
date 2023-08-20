@@ -1,5 +1,7 @@
 <script lang="ts">
     import IDB from "../../IDB"
+    import { IconTrash } from "@tabler/icons-svelte"
+
     export let title: string;
     export let url: string;
     export let icon: string|undefined=undefined;
@@ -24,14 +26,10 @@
         </p>
     </div>
     <div class="aspect-square h-full grid place-items-center">
-        <button class="aspect-square h-3/4 hover:bg-slate-400 dark:hover:bg-slate-600 transition-colors rounded-md" on:click|preventDefault={()=>{
+        <button class="grid place-items-center aspect-square h-3/4 hover:bg-slate-400 dark:hover:bg-slate-600 transition-colors rounded-md" on:click|preventDefault={()=>{
 IDB.joeys.delete(id)
         }}>
-            <p
-            class="font-tabler-icons text-xl text-red-600 dark:text-red-400"
-            >
-            &#xeb41;
-            </p>
+            <IconTrash class="text-red-600 dark:text-red-400"/>
         </button>
     </div>
 </a>

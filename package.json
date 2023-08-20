@@ -27,7 +27,7 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
-    "@tabler/icons-webfont": "^2.31.0",
+    "@tabler/icons-svelte": "^2.31.0",
     "dexie": "^3.2.4"
   }
 }
