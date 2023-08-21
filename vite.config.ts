@@ -40,7 +40,7 @@ if (target === "v2") {
       type: "module",
     },
     action: {
-      default_icon: "./favicon.svg",
+      default_icon: "./favicon.png",
       default_title: "add to pouch",
     },
     permissions: ["activeTab"],
@@ -48,7 +48,6 @@ if (target === "v2") {
 } else {
   throw new Error("manifest version not specified");
 }
-manifest;
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
