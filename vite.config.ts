@@ -17,12 +17,10 @@ if (target === "v2") {
     chrome_url_overrides: {
       newtab: "./src/newtab/index.html",
     },
-    background: {
-      scripts: ["./src/background/index.ts"],
-    },
     browser_action: {
       default_icon: "./favicon.svg",
       default_title: "add to pouch",
+      default_popup: "./src/popup/index.html"
     },
     permissions: ["activeTab"],
   } satisfies v2;
@@ -35,13 +33,10 @@ if (target === "v2") {
     chrome_url_overrides: {
       newtab: "./src/newtab/index.html",
     },
-    background: {
-      service_worker: "./src/background/index.ts",
-      type: "module",
-    },
     action: {
       default_icon: "./favicon.png",
       default_title: "add to pouch",
+      default_popup: "./src/popup/index.html"
     },
     permissions: ["activeTab"],
   } satisfies v3;

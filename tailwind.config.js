@@ -3,6 +3,8 @@ export default {
   content: [
     "./src/newtab/index.html",
     "./src/newtab/**/*.{svelte,js,ts,jsx,tsx}",
+    "./src/popup/index.html",
+    "./src/popup/**/*.{svelte,js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
