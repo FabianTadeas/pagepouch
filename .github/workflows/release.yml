@@ -18,6 +18,13 @@ jobs:
       - run: |
           mkdir ./release
           zip -r ./release/pagepouch-source.zip ./* -x ./release/*
+          npm i
+          cd ./dist
+          npm run build:v2
+          zip -r ../release/pagepouch-v2.zip ./*
+          rm -r ./*
+          npm run build:v3
+          zip -r ../release/pagepouch-v3.zip ./*
           
       - uses: actions/upload-artifact@v3
         with:
