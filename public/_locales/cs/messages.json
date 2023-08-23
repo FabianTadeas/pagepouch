@@ -1,0 +1,40 @@
+{
+    "extName": {
+        "message": "PagePouch",
+        "description": "[extension] name"
+    },
+    "extDescription": {
+        "message": "Uschovávejte své záložky do své virtuální kapsy pro snadnou organizaci a bezstarostné otevírání.",
+        "description": "[extension] description"
+    },
+
+    "popProcessing": {
+        "message": "Zpracovávání!",
+        "description": "[popup] message while a new tab is being added"
+    },
+    "popDuplicate": {
+        "message": "Tato záložka už existuje ve vaší kapse.\n Co s ní chcete udělat?",
+        "description": "[popup] message when user tries to add a tab that is already added"
+    },
+    "popDuplicateKeep": {
+        "message": "Přidat znovu!",
+        "description": "[popup] button to keep duplicate"
+    },
+    "popDuplicateDiscard": {
+        "message": "Zahodit",
+        "description": "[popup] button to discard duplicate"
+    },
+    "popError": {
+        "message": "Něco se nepovedlo",
+        "description": "[popup] message when the add tab process fails"
+    },
+    "popSuccess": {
+        "message": "Hotovo!",
+        "description": "[popup] message when a new tab gets added successfuly"
+    },
+    
+    "tabCoffee": {
+        "message": "Dopřejte mi kávu!",
+        "description": "[newtab] Buy me a coffee"
+    }
+}

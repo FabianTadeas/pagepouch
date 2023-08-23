@@ -11,9 +11,10 @@ let manifest: v2 | v3 | undefined;
 if (target === "v2") {
   manifest = {
     manifest_version: 2,
-    name: pkg.name,
-    description: pkg.description,
+    name: "__MSG_extName__",
+    description: "__MSG_extDescription__",
     version: pkg.version,
+    default_locale: "en",
     chrome_url_overrides: {
       newtab: "./src/newtab/index.html",
     },
@@ -27,9 +28,10 @@ if (target === "v2") {
 } else if (target === "v3") {
   manifest = {
     manifest_version: 3,
-    name: pkg.name,
-    description: pkg.description,
+    name: "__MSG_extName__",
+    description: "__MSG_extDescription__",
     version: pkg.version,
+    default_locale: "en",
     chrome_url_overrides: {
       newtab: "./src/newtab/index.html",
     },

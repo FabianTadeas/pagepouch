@@ -37,20 +37,20 @@
 <div class="text-base dark:text-slate-200 text-slate-800">
     {#if duplicate}
         <div class="text-center min-w-max">
-            This tab is already in your pouch. <br /> what do you want to do?
+            {chrome.i18n.getMessage("popDuplicate")}
             <div class="flex gap-4 w-full mt-4">
                 <button on:click={()=>{
                     finish()
-                }} class="py-2 bg-slate-300 dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-700 rounded-md px-4 bg-opacity-0 hover:bg-opacity-50 dark:bg-opacity-0 hover:dark:bg-opacity-50 transition-all">Add again!</button>
+                }} class="py-2 bg-slate-300 dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-700 rounded-md px-4 bg-opacity-0 hover:bg-opacity-50 dark:bg-opacity-0 hover:dark:bg-opacity-50 transition-all">{chrome.i18n.getMessage("popDuplicateKeep")}</button>
                 <button on:click={()=>{
                     window.close()
-                }} class="py-2 bg-slate-300 dark:bg-slate-700 rounded-md px-4 hover:bg-opacity-50 hover:dark:bg-opacity-50 transition-all">Don't add</button>
+                }} class="py-2 bg-slate-300 dark:bg-slate-700 rounded-md px-4 hover:bg-opacity-50 hover:dark:bg-opacity-50 transition-all">{chrome.i18n.getMessage("popDuplicateDiscard")}</button>
             </div>
         </div>
     {:else}
         <div class="flex gap-4 animate-pulse min-w-max">
             <IconLoader2 class="animate-spin" />
-            Processing!
+            {chrome.i18n.getMessage("popProcessing")}
         </div>
     {/if}
 </div>

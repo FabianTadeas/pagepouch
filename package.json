@@ -1,9 +1,9 @@
 {
   "name": "pagepouch",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
-  "description": "browser extension for storing tabs for later use",
+  "description": "browser extension for moving tabs out of your way",
   "scripts": {
     "dev:v3": "VITE_TARGET=v3 vite",
     "dev:v2": "VITE_TARGET=v2 vite",

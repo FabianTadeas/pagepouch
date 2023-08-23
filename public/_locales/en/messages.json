@@ -1,0 +1,40 @@
+{
+    "extName": {
+        "message": "PagePouch",
+        "description": "[extension] name"
+    },
+    "extDescription": {
+        "message": "Tuck your tabs into your virtual pouch for easy organization and effortless retrieval.",
+        "description": "[extension] description"
+    },
+
+    "popProcessing": {
+        "message": "Processing!",
+        "description": "[popup] message while a new tab is being added"
+    },
+    "popDuplicate": {
+        "message": "This tab is already in your pouch. what do you want to do?",
+        "description": "[popup] message when user tries to add a tab that is already added"
+    },
+    "popDuplicateKeep": {
+        "message": "Add again!",
+        "description": "[popup] button to keep duplicate"
+    },
+    "popDuplicateDiscard": {
+        "message": "Don't add",
+        "description": "[popup] button to discard duplicate"
+    },
+    "popError": {
+        "message": "Something went wrong",
+        "description": "[popup] message when the add tab process fails"
+    },
+    "popSuccess": {
+        "message": "All done!",
+        "description": "[popup] message when a new tab gets added successfuly"
+    },
+    
+    "tabCoffee": {
+        "message": "Buy Me a Coffee!",
+        "description": "[newtab] Buy me a coffee"
+    }
+}
