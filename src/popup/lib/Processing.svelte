@@ -15,7 +15,8 @@
             title: title,
             added: new Date().getTime(),
             url: url,
-            icon: icon
+            icon: icon,
+            parentId:-2
         })
     }
 

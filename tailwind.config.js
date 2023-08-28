@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode:"class",
   content: [
     "./src/newtab/index.html",
     "./src/newtab/**/*.{svelte,js,ts,jsx,tsx}",
@@ -7,7 +8,11 @@ export default {
     "./src/popup/**/*.{svelte,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        accent: "rgb(var(--accent) / <alpha-value>)",
+      },
+    },
     fontFamily: {
       "sans": ["Cantarell-Regular"],
       "sans-bold": ["Cantarell-Bold"],
@@ -16,5 +21,4 @@ export default {
     },
   },
   plugins: [],
-}
-
+};

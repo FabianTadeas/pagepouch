@@ -25,4 +25,4 @@ function makeOption<T>(key: string, initial: T) {
   };
 }
 
-export const theme = makeOption<{neutral: "dark" | "light" | "auto", accent: string}>("theme", {accent:"139 92 246",neutral:"auto"});
+export const theme = makeOption<{neutral: "dark" | "light" | "auto", accent: string}>("theme", {accent:"234 88 12",neutral:"auto"});
