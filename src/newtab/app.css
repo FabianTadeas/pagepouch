@@ -18,3 +18,9 @@
   font-family: Cantarell-Regular;
   src: url("/Cantarell/Cantarell-Regular.ttf") format("truetype");
 }
+
+@layer components {
+  .active-outline {
+    @apply focus-visible:outline -outline-offset-2 outline-2 outline-neutral-700 dark:outline-neutral-300
+  }
+}

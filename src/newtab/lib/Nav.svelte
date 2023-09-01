@@ -9,6 +9,8 @@
     IconCup,
     IconBrandGithub,
   } from "@tabler/icons-svelte";
+  import IDB from "../../IDB";
+  import activeDir from "../utils/activeDirectoryId";
 </script>
 
 <nav
@@ -25,10 +27,34 @@
     <button class="p-2 transition-all hover:text-accent">
       <IconSearch />
     </button>
-    <button class="p-2 transition-all hover:text-accent">
+    <button
+      class="p-2 transition-all hover:text-accent"
+      on:click={() => {
+        let title = prompt("title");
+        IDB.tiles.add({
+          type:"directory",
+          title,
+          added: new Date().getTime(),
+          parentId: $activeDir,
+        });
+      }}
+    >
       <IconFolderPlus />
     </button>
-    <button class="p-2 transition-all hover:text-accent">
+    <button
+      class="p-2 transition-all hover:text-accent"
+      on:click={() => {
+        let title = prompt("title");
+        let url = prompt("url");
+        IDB.tiles.add({
+          type:"bookmark",
+          title,
+          added: new Date().getTime(),
+          url,
+          parentId: $activeDir,
+        });
+      }}
+    >
       <IconBrowserPlus />
     </button>
     <button class="p-2 transition-all hover:text-accent">
@@ -37,8 +63,7 @@
     <button
       class="p-2 transition-all hover:text-accent"
       on:click={() => {
-        // history.pushState(undefined, "", "bar.html");
-        location.hash = location.hash === "#-1" ? "#-2" : "#-1"
+        location.hash = prompt("id")
       }}
     >
       <IconTestPipe />
