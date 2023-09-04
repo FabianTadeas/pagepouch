@@ -1,4 +1,11 @@
+<div align="center">
+  
 # PagePouch
+
+[Chrome Web Store](https://chrome.google.com/webstore/detail/pagepouch/bjfmlmdioaabdpilhhgempabgnemchgb) • [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/pagepouch)
+
+</div>
+
 is a user-friendly browser extension designed to simplify your online experience. This extension allows you to effortlessly store tabs for later use, preventing clutter. Plus, you can easily open stored tabs in the new tab when needed, streamlining your workflow.
 
 ---
