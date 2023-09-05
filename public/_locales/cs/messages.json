@@ -32,9 +32,28 @@
         "message": "Hotovo!",
         "description": "[popup] message when a new tab gets added successfuly"
     },
-    
-    "tabCoffee": {
-        "message": "Dopřejte mi kávu!",
-        "description": "[newtab] Buy me a coffee"
+    "tabBookmarkEdit": {
+        "message": "Upravit",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark"
+    },
+    "tabBookmarkEditIcon": {
+        "message": "Upravit Ikonu",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark icon"
+    },
+    "tabBookmarkEditTitle": {
+        "message": "Upravit Název",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark title"
+    },
+    "tabBookmarkEditDescription": {
+        "message": "Upravit Popisek",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark description"
+    },
+    "tabBookmarkEditDelete": {
+        "message": "Odstranit",
+        "description": "[newtab] tooltip on a button to delete a bookmark"
+    },
+    "tabBookmarkEditMove": {
+        "message": "Posunout",
+        "description": "[newtab] tooltip on a button to move a bookmark"
     }
 }

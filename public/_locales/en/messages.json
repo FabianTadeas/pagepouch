@@ -32,9 +32,28 @@
         "message": "All done!",
         "description": "[popup] message when a new tab gets added successfuly"
     },
-    
-    "tabCoffee": {
-        "message": "Buy Me a Coffee!",
-        "description": "[newtab] Buy me a coffee"
+    "tabBookmarkEdit": {
+        "message": "Edit",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark"
+    },
+    "tabBookmarkEditIcon": {
+        "message": "Edit Icon",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark icon"
+    },
+    "tabBookmarkEditTitle": {
+        "message": "Edit Title",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark title"
+    },
+    "tabBookmarkEditDescription": {
+        "message": "Edit Description",
+        "description": "[newtab] tooltip on a button to trigger editing a bookmark description"
+    },
+    "tabBookmarkEditDelete": {
+        "message": "Delete",
+        "description": "[newtab] tooltip on a button to delete a bookmark"
+    },
+    "tabBookmarkEditMove": {
+        "message": "Move",
+        "description": "[newtab] tooltip on a button to move a bookmark"
     }
 }

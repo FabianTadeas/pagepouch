@@ -1,6 +1,6 @@
 <script lang="ts">
   import IDB from "../../IDB";
-  import { IconTrash } from "@tabler/icons-svelte";
+  import { IconTrash, IconArrowsMove } from "@tabler/icons-svelte";
 
   export let title: string;
   export let url: string;
@@ -42,12 +42,24 @@
       {title}
     </h1>
   </a>
-  <div class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100">
+  <div
+    class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+  >
     <button
-      on:focusout={() => {
+      on:click={() => {}}
+      class="w-3/4 aspect-square rounded-xl grid place-items-center transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 active-outline"
+    >
+      <IconArrowsMove />
+    </button>
+  </div>
+  <div
+    class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
+  >
+    <button
+      on:blur={() => {
         deletionState = 0;
       }}
-      on:click|preventDefault={() => {
+      on:click={() => {
         deletionState++;
       }}
       class="w-3/4 aspect-square rounded-xl grid place-items-center transition-colors active-outline {deletionState ===
