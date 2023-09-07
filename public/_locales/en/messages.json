@@ -52,6 +52,10 @@
         "message": "Delete",
         "description": "[newtab] tooltip on a button to delete a bookmark"
     },
+    "tabBookmarkEditDeleteConfirm": {
+        "message": "Confirm to delete",
+        "description": "[newtab] tooltip on a button to confirm the deletetion of a bookmark"
+    },
     "tabBookmarkEditMove": {
         "message": "Move",
         "description": "[newtab] tooltip on a button to move a bookmark"

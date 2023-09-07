@@ -115,7 +115,9 @@
           </div>
           <div class="w-16 grid place-items-center shrink-0">
             <button
-              title={chrome.i18n.getMessage("tabBookmarkEditDelete")}
+              title={deletionState === 1
+                ? chrome.i18n.getMessage("tabBookmarkEditDeleteConfirm")
+                : chrome.i18n.getMessage("tabBookmarkEditDelete")}
               on:blur={() => {
                 deletionState = 0;
               }}

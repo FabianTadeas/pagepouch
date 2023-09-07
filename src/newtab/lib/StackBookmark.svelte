@@ -70,6 +70,7 @@
       class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
     >
       <button
+        title={chrome.i18n.getMessage("tabBookmarkEditMove")}
         on:click={() => {}}
         class="w-3/4 aspect-square rounded-xl grid place-items-center transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 active-outline"
       >
@@ -80,6 +81,9 @@
       class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
     >
       <button
+        title={deletionState === 1
+          ? chrome.i18n.getMessage("tabBookmarkEditDeleteConfirm")
+          : chrome.i18n.getMessage("tabBookmarkEditDelete")}
         on:blur={() => {
           deletionState = 0;
         }}
