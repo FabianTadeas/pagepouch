@@ -1,6 +1,7 @@
 <script lang="ts">
   import { flip } from "svelte/animate";
   import { liveQuery } from "dexie";
+  import dropArea from "../utils/dropArea";
   import Bookmark from "./Bookmark.svelte";
   import Directory from "./Directory.svelte";
   import IDB from "../../IDB";
@@ -19,36 +20,8 @@
   <div class="grow rounded-2xl overflow-y-auto flex items-start h-0">
     <main
       class="w-full min-h-full gap-2 grid grid-cols-3 grid-flow-dense auto-rows-[4.5rem]"
-      on:dragover={(ev) => {
-        if (
-          ev.dataTransfer.types.includes("text/uri-list") ||
-          ev.dataTransfer.types.includes("pagepouch/id")
-        ) {
-          ev.preventDefault();
-        }
-      }}
-      on:dragenter={(ev) => {
-        if (
-          ev.dataTransfer.types.includes("text/uri-list") ||
-          ev.dataTransfer.types.includes("pagepouch/id")
-        ) {
-          ev.preventDefault();
-        }
-      }}
-      on:drop|preventDefault={(ev) => {
-        if (ev.dataTransfer.types.includes("pagepouch/id")) {
-          const droppedId = parseInt(ev.dataTransfer.getData("pagepouch/id"));
-          IDB.tiles.update(droppedId, { parentId: $activeDir });
-        } else {
-          let url = ev.dataTransfer.getData("text/uri-list");
-          IDB.tiles.add({
-            type: "bookmark",
-            title: url,
-            added: new Date().getTime(),
-            url,
-            parentId: $activeDir,
-          });
-        }
+      use:dropArea={{
+        id: activeDir,
       }}
     >
       {#if $tiles}

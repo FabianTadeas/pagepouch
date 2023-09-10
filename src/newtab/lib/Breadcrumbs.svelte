@@ -2,6 +2,7 @@
   import { IconHome, IconChevronRight } from "@tabler/icons-svelte";
   import activeDir from "../utils/activeDirectoryId";
   import IDB from "../../IDB";
+  import dropArea from "../utils/dropArea";
 
   function buildPath(
     activeId: number
@@ -30,6 +31,7 @@
     on:click={() => {
       location.hash = "-1";
     }}
+    use:dropArea={{ id: -1, openOnHover: true }}
     class="last:text-neutral-800 last:dark:text-neutral-300 active-outline px-1 rounded-md"
   >
     <IconHome class="h-5 w-5" />
@@ -43,6 +45,7 @@
         on:click={() => {
           location.hash = "#" + pathElement.id;
         }}
+        use:dropArea={{ id: pathElement.id, openOnHover: true }}
         class="last:text-neutral-800 last:dark:text-neutral-300 active-outline px-2 rounded-md group"
       >
         <span class="group-hover:underline">{pathElement.title}</span>

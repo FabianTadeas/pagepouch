@@ -1,6 +1,7 @@
 <script lang="ts">
   import { flip } from "svelte/animate";
   import { liveQuery } from "dexie";
+  import dropArea from "../utils/dropArea";
   import Bookmark from "./StackBookmark.svelte";
   import IDB from "../../IDB";
 
@@ -11,37 +12,10 @@
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <div
     class="w-full h-full rounded-2xl space-y-2 overflow-y-auto"
-    on:dragover={(ev) => {
-      if (
-        ev.dataTransfer.types.includes("text/uri-list") ||
-        ev.dataTransfer.types.includes("pagepouch/id")
-      ) {
-        ev.preventDefault();
-      }
-    }}
-    on:dragenter={(ev) => {
-      if (
-        ev.dataTransfer.types.includes("text/uri-list") ||
-        ev.dataTransfer.types.includes("pagepouch/id")
-      ) {
-        ev.preventDefault();
-      }
-    }}
-    on:drop|preventDefault={(ev) => {
-      if (ev.dataTransfer.types.includes("pagepouch/id")) {
-        if (ev.dataTransfer.getData("pagepouch/type") === "directory") return;
-        const droppedId = parseInt(ev.dataTransfer.getData("pagepouch/id"));
-        IDB.tiles.update(droppedId, { parentId: -2 });
-      } else {
-        let url = ev.dataTransfer.getData("text/uri-list");
-        IDB.tiles.add({
-          type: "bookmark",
-          title: url,
-          added: new Date().getTime(),
-          url,
-          parentId: -2,
-        });
-      }
+    use:dropArea={{
+      id: -2,
+      abortDrop: (ev) =>
+        ev.dataTransfer.getData("pagepouch/type") === "directory",
     }}
   >
     {#if $tiles}

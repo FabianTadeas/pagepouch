@@ -1,9 +1,9 @@
 <script lang="ts">
   import IDB from "../../IDB";
   import recursiveDelete from "../utils/recursiveDelete";
+  import dropArea from "../utils/dropArea";
   import {
     IconEdit,
-    IconAlignJustified,
     IconBallpen,
     IconTrash,
     IconArrowsMove,
@@ -18,7 +18,7 @@
   let editMode = false;
   let deletionState = 0;
   $: if (deletionState === 2) {
-    IDB.tiles.delete(id);
+    recursiveDelete(id);
   }
   let drag = false;
 </script>
@@ -40,6 +40,12 @@
     if (!ev.currentTarget.contains(ev.relatedTarget)) {
       editMode = false;
     }
+  }}
+  use:dropArea={{
+    id,
+    abortDrop: (ev) =>
+      ev.dataTransfer.getData("pagepouch/id") === id.toString(),
+    openOnHover: true,
   }}
   draggable="true"
   on:dragstart={(ev) => {
