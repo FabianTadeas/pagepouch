@@ -1,7 +1,7 @@
 <script lang="ts">
   import IDB from "../../IDB";
   import recursiveDelete from "../utils/recursiveDelete";
-  import dropArea from "../utils/dropArea";
+  import drop from "../utils/drop";
   import {
     IconEdit,
     IconBallpen,
@@ -11,16 +11,24 @@
     IconFolder,
   } from "@tabler/icons-svelte";
   import { fade } from "svelte/transition";
+  import drag, { move } from "../utils/drag";
+  import { writable } from "svelte/store";
 
   export let title: string;
   export let id: number | undefined = undefined;
+  export let parentId: number;
 
   let editMode = false;
   let deletionState = 0;
   $: if (deletionState === 2) {
     recursiveDelete(id);
   }
-  let drag = false;
+  let isDragged = false;
+  let dropReady = false;
+  let timeout: NodeJS.Timeout;
+  $: dropReady
+    ? (timeout = setTimeout(() => (location.hash = "#" + id), 1000))
+    : clearTimeout(timeout);
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -41,28 +49,23 @@
       editMode = false;
     }
   }}
-  use:dropArea={{
+  use:drop={{
     id,
-    abortDrop: (ev) =>
-      ev.dataTransfer.getData("pagepouch/id") === id.toString(),
-    openOnHover: true,
+    preventDrop: (ev) =>
+      ev.dataTransfer.types.includes("pagepouch/id/" + id.toString()),
   }}
-  draggable="true"
-  on:dragstart={(ev) => {
-    ev.dataTransfer.setData("pagepouch/id", id.toString());
-    ev.dataTransfer.setData("pagepouch/type", "directory");
-    setTimeout(() => {
-      drag = true;
-    }, 0);
-  }}
-  on:dragend={() => {
-    drag = false;
-  }}
-  class="h-full w-full group rounded-2xl {drag
+  on:dropready={() => (dropReady = true)}
+  on:dropreadyend={() => (dropReady = false)}
+  use:drag={{ data: { id, parentId, type: "directory" } }}
+  on:dragstart={() => (isDragged = true)}
+  on:dragend={() => (isDragged = false)}
+  class="h-full w-full group rounded-2xl {isDragged
     ? 'outline outline-2 -outline-offset-2 text-neutral-400 dark:text-neutral-600 outline-current grid place-items-center'
-    : 'bg-neutral-100 dark:bg-neutral-800 flex'}"
+    : 'bg-neutral-100 dark:bg-neutral-800 flex'} {dropReady
+    ? 'outline outline-2 -outline-offset-2 outline-accent'
+    : ''}"
 >
-  {#if drag}
+  {#if isDragged}
     <IconArrowsMove />
   {:else}
     <div class="grow relative">
@@ -98,7 +101,7 @@
           <div class="w-16 grid place-items-center shrink-0">
             <button
               title={chrome.i18n.getMessage("tabBookmarkEditMove")}
-              on:click={() => {}}
+              use:move
               class="w-3/4 aspect-square rounded-xl grid place-items-center transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 active-outline"
             >
               <IconArrowsMove />
@@ -150,6 +153,7 @@
       class="w-16 grid place-items-center shrink-0 transition-opacity opacity-0 group-hover:opacity-100 group-focus-within:opacity-100"
     >
       <button
+        title={chrome.i18n.getMessage("tabBookmarkEdit")}
         on:click={() => {
           editMode = !editMode;
         }}

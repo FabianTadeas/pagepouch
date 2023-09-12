@@ -9,19 +9,22 @@
     IconIcons,
   } from "@tabler/icons-svelte";
   import { fade } from "svelte/transition";
+  import drag, { move } from "../utils/drag";
+  import { writable } from "svelte/store";
 
   export let title: string;
   export let url: string;
   export let description: string | undefined = undefined;
   export let icon: string | undefined = undefined;
   export let id: number | undefined = undefined;
+  export let parentId: number;
 
   let editMode = false;
   let deletionState = 0;
   $: if (deletionState === 2) {
     IDB.tiles.delete(id);
   }
-  let drag = false;
+  let isDragged = false;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -42,24 +45,14 @@
       editMode = false;
     }
   }}
-  draggable="true"
-  on:dragstart={(ev) => {
-    ev.dataTransfer.setData("pagepouch/id", id.toString());
-    ev.dataTransfer.setData("pagepouch/type", "bookmark");
-    ev.dataTransfer.setData("text/uri-list", url);
-    ev.dataTransfer.setData("text/plain", url);
-    setTimeout(() => {
-      drag = true;
-    }, 0);
-  }}
-  on:dragend={() => {
-    drag = false;
-  }}
-  class="h-full w-full group rounded-2xl {drag
+  use:drag={{ data: { id, parentId, type: "bookmark", url } }}
+  on:dragstart={() => (isDragged = true)}
+  on:dragend={() => (isDragged = false)}
+  class="h-full w-full group rounded-2xl {isDragged
     ? 'outline outline-2 -outline-offset-2 text-neutral-400 dark:text-neutral-600 outline-current grid place-items-center'
     : 'bg-neutral-100 dark:bg-neutral-800 flex'}"
 >
-  {#if drag}
+  {#if isDragged}
     <IconArrowsMove />
   {:else}
     <div class="grow relative">
@@ -107,7 +100,7 @@
           <div class="w-16 grid place-items-center shrink-0">
             <button
               title={chrome.i18n.getMessage("tabBookmarkEditMove")}
-              on:click={() => {}}
+              use:move
               class="w-3/4 aspect-square rounded-xl grid place-items-center transition-colors hover:bg-neutral-200 hover:dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 active-outline"
             >
               <IconArrowsMove />
